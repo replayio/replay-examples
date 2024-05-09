@@ -1,0 +1,16 @@
+{
+  "name": "@repo/01_race_condition",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "pw:run": "playwright test"
+  },
+  "keywords": [],
+  "author": "Filip Hric",
+  "license": "ISC",
+  "dependencies": {
+    "@repo/shopping-cart": "*"
+  }
+}

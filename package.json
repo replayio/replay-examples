@@ -8,8 +8,6 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "@repo/eslint-config": "*",
-    "@repo/typescript-config": "*",
     "prettier": "^3.2.5",
     "turbo": "latest"
   },
@@ -19,6 +17,13 @@
   "packageManager": "npm@9.6.7",
   "workspaces": [
     "apps/*",
-    "packages/*"
-  ]
+    "packages/*",
+    "examples/*"
+  ],
+  "dependencies": {
+    "@replayio/cypress": "^2.1.0",
+    "@replayio/playwright": "^3.0.0-alpha.9",
+    "cypress": "^13.9.0",
+    "playwright": "^1.44.0"
+  }
 }
