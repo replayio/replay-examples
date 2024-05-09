@@ -1,7 +1,9 @@
 /// <reference types="cypress" />
 import { defineConfig } from "cypress";
 import { plugin as replayPlugin } from '@replayio/cypress'
-import 'dotenv/config'
+import { config } from 'dotenv'
+
+config({ path: '../../.env' })
 
 export default defineConfig({
   e2e: {
@@ -11,7 +13,7 @@ export default defineConfig({
     setupNodeEvents(on, config) {
       replayPlugin(on, config, {
         upload: true,
-        apiKey: process.env.EXAMPLES_01_REPLAY_KEY,
+        apiKey: process.env.REPLAY_API_KEY,
       });
       return config;
     },

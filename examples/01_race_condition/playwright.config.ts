@@ -3,13 +3,16 @@ import {
   createReplayReporterConfig,
   devices as replayDevices,
 } from "@replayio/playwright";
+import { config } from 'dotenv'
+
+config({ path: '../../.env' })
 
 export default defineConfig({
   testDir: './playwright',
   reporter: [
     createReplayReporterConfig({
       upload: true,
-      apiKey: process.env.EXAMPLES_01_REPLAY_KEY,
+      apiKey: process.env.REPLAY_API_KEY,
     }),
     ['line']
   ],
