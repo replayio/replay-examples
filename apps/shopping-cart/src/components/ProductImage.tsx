@@ -4,8 +4,8 @@ interface ProductImageProps {
 }
 
 const ProductImage = ({ src, alt }: ProductImageProps) => (
-  <div className='grid content-center'>
-    <img src={src} alt={alt} className='shadow-lg'/>
+  <div className="grid content-center">
+    <img src={src} alt={alt} className="shadow-lg" />
   </div>
 );
 

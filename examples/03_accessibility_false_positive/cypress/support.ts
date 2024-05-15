@@ -1,2 +1,2 @@
 require('@replayio/cypress/support');
-import 'cypress-axe'
+import 'cypress-axe';

@@ -7,7 +7,7 @@ import ProductPrice from './ProductPrice';
 import Counter from './Counter';
 import AddToCartButton from './AddToCartButton';
 import Message from './Message';
-import { useQuery } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query';
 
 interface ProductDetailProps {
   product: IProduct;
@@ -30,10 +30,10 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
   };
 
   // get data from /check-availability response
-  const { data } = useQuery({ 
-    queryKey: ['availability'], 
-    queryFn: fetchAvailability 
-  })  
+  const { data } = useQuery({
+    queryKey: ['availability'],
+    queryFn: fetchAvailability,
+  });
 
   // update quantity and availability
   useEffect(() => {
@@ -41,7 +41,7 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
       setAvailability(data.available);
       setQuantity(data.qty);
     }
-  }, [data]); 
+  }, [data]);
 
   // add to cart
   const addToCart = async () => {
@@ -51,27 +51,26 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        qty: quantity
+        qty: quantity,
       }),
     });
 
-    setMessageVisibility(true)
+    setMessageVisibility(true);
 
     if (response.ok) {
-      setError(false)
+      setError(false);
       setMessage('Product added to cart!');
     } else {
-      setError(true)
-      const res = await response.json()
+      setError(true);
+      const res = await response.json();
       setMessage(res.message);
     }
-
   };
 
   return (
     <div className="grid grid-cols-2 gap-10">
       <ProductImage src={product.photo} alt={product.name} />
-      <div className='grid content-center'>
+      <div className="grid content-center">
         <ProductInfo name={product.name} description={product.description} />
         <ProductAvailability available={availability} />
         <ProductPrice price={product.price} />
