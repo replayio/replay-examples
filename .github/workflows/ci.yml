@@ -11,6 +11,9 @@ jobs:
     name: Build and Test
     timeout-minutes: 15
     runs-on: ubuntu-latest
+    env:
+      POSTGRES_PRISMA_URL: ${{ sectets.POSTGRES_PRISMA_URL }}
+      POSTGRES_URL_NON_POOLING: ${{ sectets.POSTGRES_URL_NON_POOLING }}
  
     steps:
       - name: Check out code
