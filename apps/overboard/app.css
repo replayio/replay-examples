@@ -1,0 +1,448 @@
+:root {
+  --overboard-font-size-primary: 5rem;
+  --overboard-font-size-secondary: 2rem;
+  --overboard-font-size-tertiary: 1rem;
+
+  --overboard-radii-primary: 0.2rem;
+  --overboard-radii-secondary: 0.4rem;
+  --overboard-radii-tertiary: 2rem;
+
+  --overboard-space-1: 0.8rem;
+  --overboard-space-2: 1rem;
+  --overboard-space-3: 2rem;
+  --overboard-space-4: 3rem;
+  --overboard-space-5: 5rem;
+  --overboard-space-6: 18rem;
+}
+
+/* <Hoverboard /> colors  */
+.red .color-1 {
+  fill: #f41c52;
+}
+
+.red .color-2 {
+  fill: #ff7e9f;
+}
+
+.red .color-3 {
+  fill: #ffdd3f;
+}
+
+.red .color-4 {
+  fill: #47d1ff;
+}
+
+.red .color-5 {
+  fill: #47d1ff;
+}
+
+.green .color-1 {
+  fill: #20a10b;
+}
+
+.green .color-2 {
+  fill: #85d768;
+}
+
+.green .color-3 {
+  fill: #d0ffbf;
+}
+
+.green .color-4 {
+  fill: #ff55cf;
+}
+
+.green .color-5 {
+  fill: #ff55cf;
+}
+
+.blue .color-1 {
+  fill: #3749e7;
+}
+
+.blue .color-2 {
+  fill: #8aa9fa;
+}
+
+.blue .color-3 {
+  fill: #cfddff;
+}
+
+.blue .color-4 {
+  fill: #ffdd3f;
+}
+
+.blue .color-5 {
+  fill: #ffdd3f;
+}
+
+/* <AddToCartButton /> component  */
+.AddToCartButton {
+  --background: #fff;
+  --foreground: #000;
+  --background-error: #ed2051;
+  --foreground-error: #fff;
+  display: grid;
+  align-items: center;
+  min-height: 72px;
+  min-width: 320px;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  background-image: linear-gradient(to top bottom, #ffbdf4, #ffbdf400);
+  box-shadow: 0px 0px 16px rgba(255, 99, 228, 0.5), 0px 0px 15px rgba(255, 99, 228, 0.5),
+    0px 0px 5px rgba(255, 99, 228, 0.5);
+  border-radius: 112px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+.AddToCartButton--error {
+  background-color: var(--background-error);
+}
+
+.AddToCartButton-label-default {
+  color: var(--foreground);
+  transform: translateY(0%);
+  grid-area: 1 / 1 / 1 / 1;
+  opacity: 1;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.AddToCartButton--error .AddToCartButton-label-default {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.AddToCartButton-label-error {
+  color: var(--foreground-error);
+  transform: translateY(100%);
+  grid-area: 1 / 1 / 1 / 1;
+  opacity: 0;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.AddToCartButton--error .AddToCartButton-label-error {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+/* <AnimatedGrid /> component */
+.AnimatedGrid {
+  --glow: #0024a5;
+  --grid-color: rgba(255, 255, 255, 0.3);
+  --grid-height: 50vh;
+  --grid-width: 100vw;
+
+  position: relative;
+  z-index: 2;
+}
+
+.AnimatedGrid-grid {
+  width: var(--grid-width);
+  height: var(--grid-height);
+  overflow: hidden;
+  perspective: calc(var(--grid-height) * 0.75);
+}
+
+.AnimatedGrid-grid-fade {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+  background: linear-gradient(180deg, rgba(4, 3, 54, 0) 0%, #040336 61.41%);
+}
+
+.AnimatedGrid-glow {
+  filter: blur(120px);
+  background-color: var(--glow);
+  width: var(--grid-width);
+  height: 400px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.AnimatedGrid-grid-lines {
+  width: 100%;
+  height: 200%;
+  background-image: linear-gradient(to right, var(--grid-color) 1px, transparent 0),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 0);
+  background-size: 45px 30px;
+  background-repeat: repeat;
+  transform-origin: 100% 0 0;
+  animation: play 2s linear infinite;
+}
+
+@keyframes play {
+  0% {
+    transform: rotateX(45deg) translateY(10px);
+  }
+  100% {
+    transform: rotateX(45deg) translateY(40px);
+  }
+}
+
+/* <Features /> component */
+.Features {
+  margin-top: var(--overboard-space-4);
+  place-self: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  gap: 0.8rem;
+  list-style: none;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.Features li:not([aria-hidden]) {
+  text-decoration: underline;
+}
+
+.Features:after {
+  visibility: hidden;
+  position: absolute;
+  bottom: calc(var(--overboard-space-2) * -1);
+  width: 100%;
+  height: 1px;
+  margin-bottom: var(--overboard-space-2);
+  content: "";
+  display: block;
+  background-color: #fff;
+}
+
+@media (min-width: 1024px) {
+  .Features {
+    margin-top: 0;
+    flex-direction: row;
+  }
+
+  .Features li:not([aria-hidden]) {
+    text-decoration: none;
+  }
+
+  .Features:after {
+    visibility: visible;
+  }
+}
+
+/* <Stars /> component */
+.Stars {
+  opacity: 0.5;
+}
+
+.Stars > circle {
+  --delay: 0s;
+  --duration: 5s;
+
+  opacity: 0;
+  animation-name: blink;
+  animation-timing-function: linear;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-delay: var(--delay);
+}
+
+.Stars > circle:nth-child(5n) {
+  --delay: 0s;
+}
+
+.Stars > circle:nth-child(5n + 1) {
+  --delay: 2.5s;
+}
+
+.Stars > circle:nth-child(5n + 2) {
+  --delay: 5s;
+}
+
+.Stars > circle:nth-child(5n + 3) {
+  --delay: 7.5s;
+}
+
+.Stars > circle:nth-child(5n + 4) {
+  --delay: 10s;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+[aria-hidden] {
+  user-select: none;
+}
+
+:root {
+  --font-size-primary: 5rem;
+  --font-size-secondary: 2rem;
+  --font-size-tertiary: 1rem;
+
+  --radii-primary: 0.2rem;
+  --radii-secondary: 0.4rem;
+  --radii-tertiary: 2rem;
+
+  --space-1: 0.8rem;
+  --space-2: 1rem;
+  --space-3: 2rem;
+  --space-4: 3rem;
+  --space-5: 5rem;
+  --space-6: 18rem;
+
+  font-size: 60%;
+}
+
+body {
+  background-color: #000;
+  min-height: 100vh;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  letter-spacing: 0.025em;
+  background-size: contain;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2 {
+  font-family: "Audiowide", sans-serif;
+  letter-spacing: 0.05em;
+}
+
+h1 {
+  font-size: var(--font-size-primary);
+}
+
+h2,
+p {
+  font-size: var(--font-size-secondary);
+}
+
+header {
+  padding: var(--space-3) var(--space-4);
+}
+
+.screen-reader-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.Column,
+.Row {
+  display: flex;
+}
+
+.Column {
+  flex-direction: column;
+}
+
+.Row {
+  flex-direction: row;
+}
+
+.ProductAnimation {
+  width: 75vw;
+}
+
+@media (min-width: 768px) {
+  :root {
+    font-size: 80%;
+  }
+
+  .ProductAnimation {
+    width: 50vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    font-size: 100%;
+  }
+
+  .ProductAnimation {
+    width: 25vw;
+  }
+}
+
+/* <Colors /> & <Color /> components */
+.Colors {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.Color {
+  display: grid;
+}
+
+.Color::before {
+  grid-area: 1 / 1 / 1 / 1;
+  position: relative;
+  pointer-events: none;
+  content: "";
+  border: var(--overboard-radii-primary) solid #9d6bff;
+  border-radius: 100%;
+}
+
+.Color input {
+  grid-area: 1 / 1 / 1 / 1;
+  appearance: none;
+  width: var(--overboard-space-4);
+  height: var(--overboard-space-4);
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 100%;
+  transform: scale(1);
+  transition: transform 180ms ease-out;
+  cursor: pointer;
+  background-image: linear-gradient(
+    135deg,
+    var(--stop-1) 0%,
+    var(--stop-1) 50%,
+    var(--stop-2) 50%,
+    var(--stop-2) 100%
+  );
+}
+
+.Color input:checked {
+  transform: scale(0.8);
+}
