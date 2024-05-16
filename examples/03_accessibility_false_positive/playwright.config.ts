@@ -1,11 +1,8 @@
 import { defineConfig } from '@playwright/test';
-import {
-  createReplayReporterConfig,
-  devices as replayDevices,
-} from "@replayio/playwright";
-import { config } from 'dotenv'
+import { createReplayReporterConfig, devices as replayDevices } from '@replayio/playwright';
+import { config } from 'dotenv';
 
-config({ path: '../../.env' })
+config({ path: '../../.env' });
 
 export default defineConfig({
   testDir: './playwright',
@@ -14,7 +11,7 @@ export default defineConfig({
       upload: true,
       apiKey: process.env.REPLAY_API_KEY,
     }),
-    ['line']
+    ['line'],
   ],
   use: {
     baseURL: 'http://localhost:3003',
@@ -23,7 +20,7 @@ export default defineConfig({
   projects: [
     {
       name: 'replay-chromium',
-      use: { ...(replayDevices['Replay Chromium']) },
+      use: { ...replayDevices['Replay Chromium'] },
     },
   ],
 });

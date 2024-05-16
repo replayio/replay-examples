@@ -1,9 +1,9 @@
 /// <reference types="cypress" />
-import { defineConfig } from "cypress";
-import { plugin as replayPlugin } from '@replayio/cypress'
-import { config } from 'dotenv'
+import { defineConfig } from 'cypress';
+import { plugin as replayPlugin } from '@replayio/cypress';
+import { config } from 'dotenv';
 
-config({ path: '../../.env' })
+config({ path: '../../.env' });
 
 export default defineConfig({
   e2e: {
@@ -17,5 +17,5 @@ export default defineConfig({
       });
       return config;
     },
-   },
+  },
 });
