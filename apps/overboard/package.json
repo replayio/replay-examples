@@ -1,0 +1,28 @@
+{
+  "name": "@repo/overboard",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@babel/plugin-transform-react-display-name": "^7.24.1",
+    "@popmotion/popcorn": "^0.4.4",
+    "@types/node": "^20.12.2",
+    "axios": "^1.6.8",
+    "dotenv": "^16.4.5",
+    "lottie-web": "^5.9.6",
+    "motion": "^10.13.1",
+    "next": "^12.2.4",
+    "next-transpile-modules": "^9.0.0",
+    "react": "*",
+    "react-dom": "*",
+    "use-frame": "^0.1.1",
+    "webpack": "^5.75.0",
+    "webpack-react-component-name": "^5.0.4"
+  }
+}
