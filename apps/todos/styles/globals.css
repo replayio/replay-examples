@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* li:hover .delete {
+  display: block;
+}
+
+li .delete {
+  display: none;
+  cursor: pointer;
+} */
+
+li input[type="checkbox"] {
+  cursor: pointer;
+}
